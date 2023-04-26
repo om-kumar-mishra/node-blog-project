@@ -1,0 +1,43 @@
+<div class="notify">
+
+     
+   <% var flashSuccess = flash("success")[0] %>
+   <% var flashError = flash("error")[0] %>
+        
+
+   
+            <div class="<%= flashSuccess?"alert alert-success alert-dismissible fade show":" "%>"  role="alert" id="success-toast" >     
+                  <%- flashSuccess%>
+                  <% if(flashSuccess){ %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                   <% }%>
+            </div>
+
+       
+
+          
+
+            <div class="<%= flashError?"alert alert-danger":" "%>"  role="alert" id="error-toast" >
+                  <%- flashError%>
+                  <% if(flashError){ %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                  <% }%> 
+            </div>    
+ </div>
+
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+ <script>
+
+   // Error Message Hide js
+   $('#element_id').delay(2000).fadeOut(500);
+$('#element_id2').delay(2000).fadeOut(500);
+$('#success-toast').delay(2000).fadeOut(500);
+$('#error-toast').delay(2000).fadeOut(500);
+  
+ 
+ </script>

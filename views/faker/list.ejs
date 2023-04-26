@@ -1,0 +1,144 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>faker</title>
+    <%-include("../plugin")%>
+  </head>
+  <body class="bg-info" >
+    <%- include("../layout/navbar")%>
+    <div class="container-fluid page-body-wrapper">
+      <%-include("../layout/settingpanel") %>
+       <!-- partial -->
+       <%- include("../layout/sidebar") %>
+       
+       <div class="container mt-4 grid-margin stretch-card ">
+       
+         
+      
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <h3>list</h3>
+             <p style="text-align:right;"> <a  href="/user_module/facker-data" class="btn btn-success mb-2">Add faker Data</a></p>
+            </div>
+         
+         
+            <h4 class="card-title">show faker data</h4>
+           
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    
+        
+              
+                    
+                    <th scope="col">status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% list.forEach((element,index)=>{%>
+                        <tr>
+                          
+                            <td><%= index+1 %></td>
+                            <td><%= element.firstName %></td>
+                            <td><%= element.lastName %></td>                       
+                         
+                                <!-- add status --> 
+                                  <% if(element.status==1){ %>                               
+                                   
+                                <td><span class="badge bg-label-success text-success me-1">Active</span></td>
+                                  <% } else { %> 
+                                  <td><span class="badge bg-label-danger text-danger me-1">Inactive</span></td>            
+                                  <% } %> 
+                                        
+                                <td>
+                                    <a class="btn btn-primary" href="/getUpdatePage?productId=<%= element.id %>" >update</a>
+                                    <a class="btn btn-danger" href="/deleteProduct?productId=<%= element.id %>" >delete</a>
+                                    
+                                  
+                                      <!-- status change -->
+                                      <% if(element.status==1){ %>                               
+                                        <a class="btn btn-danger" onclick="return confirm('Are you sure you want to inactive?');" href="/listtatus?productId=<%= element.id%>&status=active" >Inactive</a>
+                                          <% } else { %> 
+                                          <a class="btn btn-success" onclick="return confirm('Are you sure you want to Active?');" href="/listtatus?productId=<%= element.id%>status=inactive" >Active</a>
+                                          
+                                          <% } %> 
+                                </td>
+                              </tr>
+                              <%  }) %>
+                          
+                
+                </tbody>
+              </table>
+            </div>
+<!-- 
+           <div class="container text-center">
+            <ul class="site-pagination text-center mt-md-5 mt-4">         
+              <li><a class="page-numbers" href="/faker-paggination?page=1">1</a></li>
+              <li><a class="page-numbers" href="/faker-paggination?page=2">2</a></li>
+              
+              <li><a class="page-numbers" href="/faker-paggination?page=3">3</a></li>
+              <li><a class="next page-numbers" href="/faker-paggination?page=4">Next »</a></li>
+          </ul>
+
+           </div> -->
+
+
+          <div class="container">
+          
+                <% if (pages > 0) { %>
+                    <ul class="pagination text-center pagination_custom">
+                        <% if (current == 1) { %>
+                            <li class="disabled"><a>First</a></li>
+                        <% } else { %>
+                            <li><a href="/faker-list?page=1">First</a></li>
+                        <% } %>
+                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                        <% if (i !== 1) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                            <% if (i == current) { %>
+                                <li class="active"><a><%= i %></a></li>
+                            <% } else { %>
+                                <li><a href="/faker-list?page=<%= i %>"><%= i %></a></li>
+                            <% } %>
+                            <% if (i == Number(current) + 4 && i < pages) { %>
+                                <li class="disabled"><a>...</a></li>
+                            <% } %>
+                        <% } %>
+                        <% if (current == pages) { %>
+                            <li class="disabled"><a>Last</a></li>
+                        <% } else { %>
+                            <li><a href="/faker-list?page=<%= pages %>">Last</a></li>
+                        <% } %>
+                    </ul>
+                <% } %>
+        </div>
+            
+              </div>
+          </div> 
+          </div>
+        </div>
+      </div>
+     
+      </div>
+      
+      
+    <%-include("../layout/footer")%>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+   
+    <title>Products</title>
+    <%-include("../plugin")%>
+  </head>
+  <body class="bg-info" >
+    <%- include("../layout/navbar")%>
+    <div class="container-fluid page-body-wrapper">
+      <%-include("../layout/settingpanel") %>
+       <!-- partial -->
+       <%- include("../layout/sidebar") %>
+       <%- toasts %>
+       <div class="container mt-4 grid-margin stretch-card ">
+       
+         
+      
+
+        
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <h3>Products</h3>
+             <p style="text-align:right;"> <a  href="/getProductPage" class="btn btn-success mb-2">Add Product</a></p>
+            </div>
+         
+         
+            <h4 class="card-title">show product</h4>
+           
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">title</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">Model Name</th>
+        
+                    <th scope="col">Brand Name</th>
+                   
+                    <th scope="col">Category Name</th>    
+                    <th scope="col">Sub Category Name</th>
+                    <th scope="col">Child Category Name</th>
+        
+                    <th scope="col">GST</th>
+                    <th scope="col">Summery</th>
+                    <th scope="col">Description</th>
+        
+                    <th scope="col">Exchange Day</th>
+                    <th scope="col">Return Day</th>
+                    <th scope="col">Payment Mode </th>
+        
+                    <th scope="col">Price </th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">selling Price </th>
+        
+        
+                    
+        
+        
+                            
+                    <th scope="col">image</th>
+                    
+                    <th scope="col">status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% product.forEach((element,index)=>{%>
+                        <tr>
+                          
+                            <td><%= index+1 %></td>
+                            <td><%= element.title %></td>
+                            <td><%= element.sku %></td>
+                            <td><%= element.modelName %></td>
+                            <td><%= element.Brand?.name %></td>
+                            
+                            <td><%= element?.Cat?.name  %></td>
+                            <td><%= element?.Sub?.name %></td>
+                            <td><%= element?.Child?.name %></td>
+        
+                            <td><%= element.gst %></td>
+                            <td><%= element.summery %></td>
+                            <td><%= element.description %></td>
+                            <td><%= element.exchageday %></td>
+                            <td><%= element.returnDay %></td>
+                            <td><%= element.paymentMode %></td>
+        
+                            <td><%= element.price %></td>
+                            <td><%= element.discount %></td>
+                            <td><%= element.sellingPrice %></td>
+                            
+        
+        
+                             
+                            
+                            <td><img style="height: 50px; width: 50px;" src="/userimage/<%= element.image %>"> </td>
+                           
+                              
+                                <!-- add status --> 
+                                  <% if(element.status==1){ %>                               
+                                   
+                                <td><span class="badge bg-label-success text-success me-1">Active</span></td>
+                                  <% } else { %> 
+                                  <td><span class="badge bg-label-danger text-danger me-1">Inactive</span></td>            
+                                  <% } %> 
+                                        
+                                <td>
+                                    <a class="btn btn-primary" href="/getUpdatePage?productId=<%= element.id %>" >update</a>
+                                    <a class="btn btn-danger" href="/deleteProduct?productId=<%= element.id %>" >delete</a>
+                                    
+                                  
+                                      <!-- status change -->
+                                      <% if(element.status==1){ %>                               
+                                        <a class="btn btn-danger" onclick="return confirm('Are you sure you want to inactive?');" href="/productStatus?productId=<%= element.id%>&status=active" >Inactive</a>
+                                          <% } else { %> 
+                                          <a class="btn btn-success" onclick="return confirm('Are you sure you want to Active?');" href="/productStatus?productId=<%= element.id%>status=inactive" >Active</a>
+                                          
+                                          <% } %> 
+                                </td>
+                              </tr>
+                              <%  }) %>
+                          
+                
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      </div>
+ 
+     
+    <%-include("../layout/footer")%>
+  </body>
+</html>

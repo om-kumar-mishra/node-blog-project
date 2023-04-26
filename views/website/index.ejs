@@ -1,0 +1,648 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Blog website</title>
+    <%-include("cdn") %>
+</head>
+
+<body>
+    <%-include("./layouts/header")%>
+        <!-- //header -->
+        <!-- /homeblock1-->
+        <section class="w3l-homeblock1 py-sm-5 py-4">
+            <div class="container py-md-4">
+                <div class="grids-area-hny main-cont-wthree-fea row">
+                 
+                    <%category.forEach((cat,index)=>{ %>
+                        <div class="col-lg-3 col-6 grids-feature">
+                            <a href="/getBlogById?blogId=<%=cat.name%>">
+                                <div class="area-box">
+                                    <img style="max-height: 50px; min-height: 50px; max-width: 50px;"
+                                        src="/userimage/<%=cat.image%>" class="img-fluid radius-image-full"
+                                        alt="client image">
+
+
+                                    <h4 class="title-head">
+                                        <%= cat.name %>
+                                    </h4>
+                                </div>
+                            </a>
+                        </div>
+                        <%})%>
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- //homeblock1-->
+
+        <section class="w3l-testimonials" id="testimonials">
+            <!-- main-slider -->
+            <div class="testimonials pt-2 pb-5">
+                <div class="container pb-lg-5">
+                    <div class="owl-testimonial owl-carousel owl-theme mb-md-0 mb-sm-5 mb-4">
+                        <%blog.forEach((b,index)=>{%>
+                            <div class="item">
+                                <div class="row slider-info">
+                                    <div class="col-lg-8 message-info align-self">
+                                        <span class="label-blue mb-sm-4 mb-3">
+                                            <%= b.name %>
+                                        </span>
+                                        <h2 class="title-big mb-4">
+                                            <%= b.summery %>
+                                        </h2>
+
+                                        <p class="message">
+                                            <%= b.description %>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
+                                        <a href="detailOfBlog?blogId=<%=b.name%>">
+                                            <img src="/userimage/<%=b.image%>" class="img-fluid radius-image-full"
+                                                alt="client image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%})%>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- /main-slider -->
+        </section>
+        <div class="w3l-homeblock2 py-5">
+            <div class="container py-lg-5 py-md-4">
+                <!-- block -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3 class="section-title-left mb-4"> Category</h3>
+                        <div class="row">
+                            <%(typeof twoCategory==undefined)?"":twoCategory.forEach((cat,index)=>{ %>
+                                <div class="col-lg-6 col-md-6 item">
+                                    <div class="card">
+                                        <div class="card-header p-0 position-relative">
+                                            <a href="/getSubCategoryShow?categoryId=<%=cat.id%>">
+                                                <img class="card-img-bottom d-block radius-image-full"
+                                                    src="/userimage/<%=cat.image%>" alt="Card image cap">
+                                            </a>
+                                        </div>
+                                        <div class="card-body blog-details">
+                                            <span class="label-blue">
+                                                <%=cat.name%>
+                                            </span>
+                                            <a href="/getSubCategoryShow?categoryId=<%=cat.id%>" class="blog-desc">The 3
+                                                Eyeshadow palettes I own & How to
+                                                downsize your stash
+                                            </a>
+                                            <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
+                                                vitae sit.</p>
+                                            <div class="author align-items-center mt-3 mb-1">
+                                                <img src="/userimage/<%=cat.banner%>" alt=""
+                                                    class="img-fluid rounded-circle" />
+                                                <ul class="blog-meta">
+                                                    <li>
+                                                        <a href="author.html">Isabella ava</a> </a>
+                                                    </li>
+                                                    <li class="meta-item blog-lesson">
+                                                        <span class="meta-value"> July 13, 2020 </span>. <span
+                                                            class="meta-value ml-2"><span class="fa fa-clock-o"></span>
+                                                            1 min</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%})%>
+                        </div>
+
+                        <div class="mt-4 left-right bg-clr-white p-3">
+                            <h3 class="section-title-left align-self pl-2 mb-sm-0 mb-3">Advertise with us </h3>
+                            <a class="btn btn-style btn-primary" href="#url">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 trending mt-lg-0 mt-5">
+                        <div class="topics">
+                            <h3 class="section-title-left mb-4"> Topics</h3>
+                            <%category.forEach((cat,index)=>{%>
+                                <a href="/getBlogById?blogId=<%=cat.name%>" class="topics-list mt-1">
+                                    <div class="list1">
+                                        <img style="max-height: 30px; max-width: 30px;" src="/userimage/<%=cat.banner%>"
+                                            class="img-fluid radius-image-full" alt="client image">
+
+
+                                        <h4>
+                                            <%=cat.name%>
+                                        </h4>
+                                    </div>
+                                </a>
+                                <%})%>
+
+
+
+                        </div>
+                        <div class="sponsers mt-5">
+                            <h3 class="section-title-left mb-4"> Our sponsers</h3>
+                            <a href="#ad-banner"><img src="/website/assets/images/ad.jpg" alt=""
+                                    class="img-fluid radius-image-full" /></a>
+                            <a href="#advertise" class="text-center d-block text-uppercase">Advertise with us </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w3l-homeblock3 py-5">
+            <div class="container py-lg-5 py-md-4">
+                <h3 class="section-title-left mb-4"> Top Pick's of this month </h3>
+                <div class="row top-pics">
+                    <%threeCategory.forEach((cat,index)=>{%>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="top-pic1">
+                                <div class="card-body blog-details">
+                                    <a href="#blog-single.html" class="blog-desc">Fashion is
+                                        Creating your Beauty image. The New fashion starts here
+                                    </a>
+                                    <div class="author align-items-center">
+                                        <img src="/userimage/<%=cat.banner%>" alt="" class="img-fluid rounded-circle" />
+                                        <ul class="blog-meta">
+                                            <li>
+                                                <a href="author.html">
+                                                    <%=cat.name%>
+                                                </a> </a>
+                                            </li>
+                                            <li class="meta-item blog-lesson">
+                                                <span class="meta-value"> July 13, 2020 </span>. <span
+                                                    class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1
+                                                    min</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%})%>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="w3l-homeblock2 py-5">
+            <div class="container py-lg-5 py-md-4">
+                <!-- block -->
+                <div class="left-right">
+                    <h3 class="section-title-left mb-sm-4 mb-2"> Sub Category </h3>
+                    <a href="/showAllCategoryNew" class="more btn btn-small mb-sm-0 mb-4">View more</a>
+                </div>
+                <div class="row">
+
+                    <% threeSubCategory.forEach((sub,index)=>{%>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="card">
+                                <div class="card-header p-0 position-relative">
+                                    <a href="/showSubCategoryById?subId=<%=sub.id%>">
+                                        <img style="max-height: 250px;"
+                                            class="card-img-bottom d-block radius-image-full"
+                                            src="/userimage/<%=sub.image%>" alt="Card image cap">
+                                    </a>
+                                </div>
+                                <div class="card-body blog-details">
+                                    <a href="/showSubCategoryById?subId=<%=sub.id%>" class="blog-desc">An easy Guide to
+                                        buying Denim & My favourite styles
+                                    </a>
+                                    <div class="author align-items-center">
+                                        <img style="max-height: 50px;" src="/userimage/<%=sub.banner%>" alt=""
+                                            class="img-fluid rounded-circle" />
+                                        <ul class="blog-meta">
+                                            <li>
+                                                <a href="author.html">
+                                                    <%=sub.name%>
+                                                </a> </a>
+                                            </li>
+                                            <li class="meta-item blog-lesson">
+                                                <span class="meta-value"> July 13, 2020 </span>. <span
+                                                    class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1
+                                                    min</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%})%>
+
+                </div>
+            </div>
+        </div>
+        <div class="w3l-homeblock2 w3l-homeblock5 py-5">
+            <div class="container py-lg-5 py-md-4">
+                <!-- block -->
+                <div class="left-right">
+                    <h3 class="section-title-left mb-sm-4 mb-2">Product</h3>
+                    <a href="/showAllProduct" class="more btn btn-small mb-sm-0 mb-4">View more</a>
+                </div>
+                <div class="row">
+                    <% twoProduct.forEach((product,index)=>{%>
+
+                        <div class="col-lg-6">
+                            <div class="bg-clr-white hover-box">
+                                <div class="row">
+                                    <div class="col-sm-5 mt-2 position-relative">
+                                        <a href="/showProductById?productId=<%=product.id%>" class="image-mobile">
+                                            <img style="max-height: 250px; min-height: 250px;"
+                                                class="card-img-bottom d-block radius-image-full"
+                                                src="/userimage/<%=product.image%>" alt="Card image cap">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-7 card-body blog-details align-self">
+                                        <a href="/showProductById?productId=<%=product.id%>" class="blog-desc">Natural
+                                            Spa - Where you feel unique and special
+                                        </a>
+                                        <p>Model Name : <%=product.modelName%>
+                                        </p>
+                                        <p>GST : <%=product.gst%>%</p>
+                                        <p>Price : &#8377; <%=product.price%>
+                                        </p>
+                                        <p>Discount : &#8377; <%=product.discount%>%<small> with discount
+                                                    :&#8377;<%=product.price-((product.discount
+                                                        /100)*product.price)%></small></p>
+                                        <div class="author align-items-center">
+                                            <img src="/userimage/<%=product.image%>" alt=""
+                                                class="img-fluid rounded-circle" />
+                                            <ul class="blog-meta">
+                                                <li>
+                                                    <a href="/showProductById?productId=<%=product.id%>">
+                                                        <%=product.title%>
+                                                    </a> </a>
+                                                </li>
+                                                <li class="meta-item blog-lesson">
+                                                    <span class="meta-value"> July 13, 2020 </span>. <span
+                                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1
+                                                        min</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%})%>
+
+
+                </div>
+            </div>
+        </div>
+        
+        <% category.forEach((cat,index)=>{%>
+            <div class="w3l-homeblock2 w3l-homeblock5 py-5">
+                <div class="container py-lg-5 py-md-4">
+                    <!-- block -->
+                    <div class="left-right">
+                        <h3 class="section-title-left mb-sm-4 mb-2">
+                            <%=cat.name%>
+                        </h3>
+                        <a href="/getBlogById?blogId=<%=cat.name%>" class="more btn btn-small mb-sm-0 mb-4">View
+                            more</a>
+                    </div>
+                  <div class="row" >
+
+                        <%blog.forEach((b,index)=>{%>
+                            <%if(cat.id==b.category){%>
+
+                                <div class="col-lg-6 p-2 " >
+                                    <div class="bg-clr-white hover-box">
+                                        <div class="row" style="max-height: 210px; min-height: 210px;">
+                                            <div class="col-sm-5 mt-2 position-relative">
+                                                <a href="/detailOfBlog?blogId=<%=b.name%>" class="image-mobile">
+                                                    <img style="max-height: 200px; min-height: 200px;"
+                                                        class="card-img-bottom d-block radius-image-full"
+                                                        src="/userimage/<%=b.image%>" alt="Card image cap">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-7 card-body blog-details align-self">
+                                                <a href="/detailOfBlog?blogId=<%=b.name%>" class="blog-desc">
+                                                    <%=b.name%>
+                                                        
+                                                </a>
+
+                                                <div class="author align-items-center">
+                                                    <img src="/userimage/<%=b.image%>" alt=""
+                                                        class="img-fluid rounded-circle" />
+                                                    <ul class="blog-meta">
+                                                        <li>
+                                                            <a href="/detailOfBlog?blogId=<%=b.name%>">
+                                                                <%=b.title%>
+                                                            </a> </a>
+                                                        </li>
+                                                        <li class="meta-item blog-lesson">
+                                                            <span class="meta-value">
+                                                               
+                                                            </span>. <span class="meta-value ml-2"><span
+                                                                    class="fa fa-clock-o"></span>
+                                                                1 min</span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+
+                                        <% if(login_user){%>
+                                            <div class="bg-clr-white my-1">
+                                                <div class="d-flex justify-content-around flex-row fs-12">
+                    
+                                                    <div class="like p-2 cursor"> <button class="likes" value="<%=b.id%>" ><i
+                                                                class="fa fa-thumbs-o-up"></i><span
+                                                                class="ml-1 bloglike">Like  <%= "  "+b.dataValues.laughReactionsCount %>  </p></span></button></div>
+    
+    
+                                                    <div class="like p-2 cursor"><button class="unlikes" value="<%=b.id%>"><i
+                                                                class="fa fa-thumbs-o-down"></i><span
+                                                                class="ml-1">Unlike<%= "  "+b.dataValues.unlikeReactionsCount %></span></button></div>
+    
+                                                    <button class="comment" value="<%=b.id%>" data-toggle="modal" data-target="#exampleModal"
+                                                        data-bs-whatever="@fat">
+                                                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span
+                                                                class="ml-1">Comment</span></div>
+                                                        </button>
+    
+    
+                                                    <a class="share" onclick="alert('ok');">
+                                                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span
+                                                                class="ml-1">Share</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+    
+                                            </div>
+    
+                                           <%}%>
+                                    </div>
+                                   
+                                </div>
+                                <%}%>
+
+
+
+                                    <% })%>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <%})%>
+                <div class="w3l-homeblock2 w3l-homeblock6 py-5">
+                    <div class="container-fluid px-sm-5 py-lg-5 py-md-4">
+                        <!-- block -->
+                        <h3 class="section-title-left mb-4"> Trending now</h3>
+                        <div class="row">
+                            <% trending.forEach((child,index)=>{%>
+
+                                <div class="col-lg-6">
+                                    <div class="bg-clr-white hover-box">
+                                        <div class="row">
+                                            <div class="col-sm-6 position-relative">
+                                                <a href="/detailOfBlog?blogId=<%=child.BLOG.name%>">
+                                                    <img class="card-img-bottom d-block radius-image-full"
+                                                        src="/userimage/<%=child.BLOG.image%>" alt="Card image cap">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6 card-body blog-details align-self">
+                                                <span class="label-blue">
+                                                    <%=child.BLOG.name%>
+                                                </span>
+                                                <a href="/detailOfBlog?blogId=<%=child.BLOG.name%>"
+                                                    class="blog-desc">Playing
+                                                    footbal with your feet is one thing.
+                                                </a>
+
+                                                <div class="author align-items-center mt-3">
+                                                    <img src="/userimage/<%= child.BLOG.image %>" alt=""
+                                                        class="img-fluid rounded-circle" />
+                                                    <ul class="blog-meta">
+                                                        <li>
+                                                            <a href="/detailOfBlog?blogId=<%=child.BLOG.name%>">
+                                                                <%=child.BLOG.name%>
+                                                            </a> </a>
+                                                        </li>
+                                                        <li class="meta-item blog-lesson">
+                                                            <span class="meta-value"> July 13, 2020 </span>. <span
+                                                                class="meta-value ml-2"><span
+                                                                    class="fa fa-clock-o"></span> 1 min</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% if(login_user){%>
+                                            <div class=" bg-clr-white">
+                                                <div class="d-flex justify-content-around flex-row fs-12">
+                    
+                                                    <div class="like p-2 cursor"> <button class="likes" value="<%=child.id%>" ><i
+                                                                class="fa fa-thumbs-o-up"></i><span
+                                                                class="ml-1 bloglike">Like<%= "  "+child.dataValues.laughReactionsCount %>  </p></span></button></div>
+    
+    
+                                                    <div class="like p-2 cursor"><button class="unlikes" value="<%=child.id%>"><i
+                                                                class="fa fa-thumbs-o-down"></i><span
+                                                                class="ml-1">Unlike<%= "  "+child.dataValues.unlikeReactionsCount %></span></button></div>
+    
+                                                    <button class="comment" value="<%=child.id%>" data-toggle="modal" data-target="#exampleModal"
+                                                        data-bs-whatever="@fat">
+                                                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span
+                                                                class="ml-1">Comment</span></div>
+                                                        </button>
+    
+                                                    <a class="share" onclick="alert('ok');">
+                                                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span
+                                                                class="ml-1">Share</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+    
+                                            </div>
+    
+                                           <%}%>
+                                    </div>
+                                </div>
+                                <%})%>
+
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- userId -->
+                <% if(login_user){%>
+                    <input type="hidden" id="userId" value="<%= login_user.id %> ">
+                    <% } %>  
+               
+
+                <div class="w3l-subscribe py-5">
+                    <div class="container py-lg-5 py-md-4">
+                        <div class="w3l-subscribe-content text-center bg-clr-white py-md-5 py-2">
+                            <div class="py-5">
+                                <h3 class="section-title-left mb-2">Subscribe to our newsletter!</h3>
+                                <p class="mb-md-5 mb-4">We'll send you the best of our blog just once a month. We
+                                    promise. </p>
+                                <form action="#" method="GET" class="subscribe">
+                                    <input type="email" class="subscribe_input" name="search"
+                                        placeholder="Email address" required="">
+                                    <button class="btn btn-style btn-primary">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer-28 block -->
+                <%-include("./layouts/footer")%>
+                    <!-- //footer-28 block -->
+
+                    <!-- disable body scroll which navbar is in active -->
+                    
+                    <!-- disable body scroll which navbar is in active -->
+
+                    <!-- Template JavaScript -->
+                    <script src="/website/assets/js/jquery-3.3.1.min.js"></script>
+
+                    <!-- theme changer js -->
+                    <script src="/website/assets/js/theme-change.js"></script>
+                    <!-- //theme changer js -->
+
+                    <!-- courses owlcarousel -->
+                    <script src="/website/assets/js/owl.carousel.js"></script>
+
+                   
+                    </script> -->
+                    <!-- //script for testimonials -->
+
+                    <!-- bootstrap -->
+                    <script src="/website/assets/js/bootstrap.min.js"></script>
+
+
+
+
+                    <script>
+
+                        
+                      $(document).on("click",".likes",function(e){
+                               
+                               e.preventDefault()
+                               let blogId = $(this).val();
+                                let userId=$("#userId").val();
+                               $.ajax({
+                               type:"post",
+                               url:"/getLike",
+                               data:{userId:userId,blogId:blogId},
+                               success: function (data) {
+                                      // console.log(data.like)
+                                      window.location.reload()
+                                     //  $(".bloglike").append("<p>"+data.like+"</p>")
+                                      
+                                           
+                                                     
+                                      }
+                               })
+                           })
+                            
+                            $(document).on("click",".unlikes",function(e){
+                               
+                                e.preventDefault()
+                                let blogId = $(this).val();
+                                 let userId=$("#userId").val();
+                                $.ajax({
+                                type:"post",
+                                url:"/getUnLike",
+                                data:{userId:userId,blogId:blogId},
+                                success: function (data) {
+                                      console.log(data) 
+                                      window.location.reload()                          
+                                       }
+                                })
+                            })
+                           
+                           
+                            $(document).on("click",".comment",function(e){
+                                let blogId = $(this).val();
+                            $(document).on('submit', 'form#comment', function (e){
+                              e.preventDefault();
+                              $("#userId").val();                           
+                                let userId=$("#userId").val();
+                                let comment=$("#des").val();
+
+                               $.ajax({
+                               type:"post",
+                               url:"/getComments",
+                               data:{userId:userId,blogId:blogId,comment:comment},
+                               success: function (data) {
+                                        console.log(data)
+                                       window.location.href="/showComments"
+                                    //  window.location.reload();                           
+                                      }
+                               })
+                            })
+                            })
+                    </script>
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                        crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+                        
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Comment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="comment" id="comment" method="post">
+
+            <div class="container text-center">
+                <textarea class="text-center" name="des" id="des" row="4" cols="40"></textarea>
+            </div>
+           
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">comment</button>
+        </div>
+    </form>
+
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

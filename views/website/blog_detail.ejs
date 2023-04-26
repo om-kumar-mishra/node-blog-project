@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details</title>
+    <%-include("cdn") %>
+</head>
+<body>
+    <%-include("./layouts/header")%>
+    <div class="d-flex justify-content-center">
+    <section class="text-11 py-5 container">
+        <div class="text11 py-lg-5 py-md-4">
+            <div class="container">
+                <div class="blog-title px-md-5 ">
+                    <h3 class="title-big d-flex"> <%= blogbyId.name %>
+                    </h3>
+                    <ul class="blog-list">
+                        <li>
+                            <p> Posted on <strong><%= blogbyId.createdAt %></strong></p>
+                        </li>
+                        <li>
+                            <p> By <a href="#author"><strong>Charlotte mia</strong></a></p>
+                        </li>
+                        <li>
+                            <p> Published in <a href="#category"><strong>Fashion</strong></a></p>
+                        </li>
+                        <li>
+                            <p> <a href="#category"><strong>1 min read</strong></a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="image   mb-sm-5 mb-4">
+                <img class="container" src="/userimage/<%=blogbyId.image%>" alt="" class="img-fluid radius-image-full">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="text11-content">
+                            <h4 class="mt-sm-3"> <%=blogbyId.summery%></h4>
+                            <p class="mt-4 mb-3"><%=blogbyId.description%></p>
+                            
+                            <div class="sing-post-thumb mb-lg-5 mb-4 row pt-3">
+                                <div class="col-md-6">
+                                    <a href="#url"><img class="container" src="/userimage/<%=blogbyId.image%>" class="img-fluid" alt=""></a>
+                                </div>
+                                <div class="col-md-6 mt-md-0 mt-3 align-self">
+                                    <p class=""><%=blogbyId.summery%></p>
+                                </div>
+                            </div>
+                           
+                            <p class="mb-4"><%=blogbyId.description%> </p>
+                            
+                            
+                           
+    
+                           
+                        </div>
+    
+                    </div>
+                    
+                </div>
+    
+            </div>
+        </div>
+    </section>
+  </div>
+    <%-include("./layouts/footer")%>
+</body>
+</html>

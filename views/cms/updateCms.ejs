@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        
+    <title>Products</title>
+    <%-include("../plugin")%>
+  </head>
+  <body >
+    <%- include("../layout/navbar")%>
+    <div class="container-fluid page-body-wrapper">
+      <%-include("../layout/settingpanel") %>
+       <!-- partial -->
+       <%- include("../layout/sidebar") %>
+     
+
+      
+       <div class="container  bg-light p-2 mt-4 grid-margin stretch-card ">
+      
+         
+        <div class=" grid-margin stretch-card col-md-12">
+
+          
+            <div class="card">
+              <div class="">
+                <%if(message=="success"){%>
+                  <div class="alert alert-success" role="alert">
+                    successfull update!
+                  </div>
+                  <%}else {%>
+
+                  <!-- <script>
+                       swal ( "Oops" ,  "Something went wrong!" ,  "error" )
+                  </script>
+                   -->
+
+                    <div class="alert alert-danger" role="alert">
+                      
+                 
+                         <%= message %>
+                    </div>
+                    
+                   
+                    <%}%>
+               
+               </div>
+              <div class="card-body">
+                <h4 class="card-title">Cms update</h4>
+                <p class="card-description">
+                  Basic form layout
+                </p>
+                <form class="forms-sample" action="cmsUpdate" method="post" enctype="multipart/form-data" >
+                          <input type="hidden" value="<%=cms.id%>" name="cmsId" >
+                          <input type="hidden" value="<%=cms.slugName%>" name="slugName" >
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Title</label>
+                    <input type="text" value="<%=cms.title%>" name="title" class="form-control" id="exampleInputUsername1" placeholder="titile" required>
+                  </div>
+
+                  
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>                
+                    <textarea name="description"  class="form-control" id="exampleTextarea1" rows="2" ><%=cms.discription%></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Image</label>
+                    <input type="file" name="image" value="<%=cms.image%>" class="form-control" id="exampleInputConfirmPassword1" placeholder="image">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Status</label>
+    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Status</label>
+                        </div>
+                        <select name="status" class="custom-select form-control" id="inputGroupSelect01">
+                          <option selected>select status...</option>
+                          <option value="1" <%= (cms.satus==1)?"selected":"" %>  >Active</option>
+                          <option value="0" <%= (cms.satus==0)?"selected":"" %> >Inactive</option>
+                         
+                        </select>
+            
+                      </div>
+                  </div>
+                  
+                           
+                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                  <a href="/showCms"  class="btn btn-primary">Back</a>
+                </form>
+              </div>
+            </div>
+          </div>
+
+  
+      </div>
+     
+      </div>
+   
+     
+    <%-include("../layout/footer")%>
+  
+      
+
+  </body>
+</html>

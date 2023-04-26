@@ -1,0 +1,83 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Category</title>
+  </head>
+  <body class="bg-info">
+
+   <div class="container text-center">
+   
+    
+        <h3 style="color: rgb(128, 0, 0);"> <%= message %></h3> 
+   
+  </div>
+
+    <div class="container mt-3 grid-margin stretch-card">
+    
+      <!-- partial -->
+    
+      <!-- partial -->
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">category form</h4>
+          <p class="card-description">
+            category form layout
+          </p>
+          <form class="forms-sample"   id="categorySubmit" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="exampleInputUsername1">Category name</label>
+              <input type="text" name="name"  class="form-control" id="exampleInputUsername1" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Sequence</label>
+              <input type="number" name="sequence" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">upload image</label>
+              <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword1">upload banner</label>
+              <input type="file" name="banner" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword1">Satus</label>
+              
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Status</label>
+          </div>
+          <select name="status" class="custom-select form-control" id="inputGroupSelect01">
+            <option selected>select status...</option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+           
+          </select>
+
+        </div>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <button class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <script src="/js/CategoryAjax.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Feedback</title>
+    <%-include("../plugin")%>
+  </head>
+  <body class="bg-info">
+    <%- include("../layout/navbar")%>
+    <div class="container-fluid page-body-wrapper">
+      <%-include("../layout/settingpanel") %>
+       <!-- partial -->
+       <%- include("../layout/sidebar") %>
+       
+     
+          
+    
+   
+      
+      
+   <div class="container mt-4 ">
+   
+
+    <div class="container mt-3  row" > 
+      <h3 class="p-2" style="text-align: left;" >Feedback
+    
+    </h3>
+  
+    </div>
+    <div class="container grid-margin stretch-card ">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">show CMS</h4>
+       
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">name</th>
+                <th scope="col">subject</th>           
+                <th scope="col">email</th>
+                
+                <th scope="col">phone</th>
+                <th scope="col">message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% allContact.forEach((contact,index)=>{%>
+                <tr>
+                  
+                    <td><%= index+1 %></td>
+                    <td><%= contact.name %></td>
+                    <td><%= contact.subject %></td>
+                    <td><%= contact.email %></td>
+                    <td><%= contact.phone %></td>
+                    <td><%= contact.message %></td>
+                 
+                    
+                      </tr>
+                      <%  }) %>
+                  
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  </div>
+   </div>
+  
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/js/CategoryAjax.js"></script>
+
+  <%-include("../layout/footer")%>
+  
+<!-- plugins:js -->
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="vendors/chart.js/Chart.min.js"></script>
+<script src="vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="js/dataTables.select.min.js"></script>
+
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/template.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="js/dashboard.js"></script>
+<script src="js/Chart.roundedBarCharts.js"></script>
+<!-- End custom js for this page-->
+<script>
+
+  let swalFunction = function(value)
+   {
+    swal(`you want to soure ${value}`)
+   .then((value) => {
+    
+     window.location.reload()
+     
+
+   })
+  }        
+       
+   </script>
+
+  </body>
+</html>

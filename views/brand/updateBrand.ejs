@@ -1,0 +1,112 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Brand</title>
+  </head>
+  <body class="bg-info">
+
+
+
+    <div class="container mt-3 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Brand</h4>
+         
+          <form class="forms-sample" id="userSubmit" action="updateData" method="post" enctype="multipart/form-data" >
+            <input type="hidden" name="updateBrandId" value="<%= brand.id %>" class="form-control" id="exampleInputUsername1" >
+            <div class="form-group" >
+              <label for="exampleInputUsername1"> Brand name</label>
+              <input type="text" name="name" value="<%= brand.name %>" class="form-control" id="exampleInputUsername1" placeholder="Username">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">image</label>
+              <input type="file" name="image" value="<%= brand.image %>" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword1">Satus</label>
+              
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Status</label>
+          </div>
+          <select name="status" class="custom-select form-control" id="inputGroupSelect01">
+            <option selected>select status...</option>
+            <option value="1" <%= (brand.status==1)?"selected":"" %> >Active</option>
+            <option value="0"  <%= (brand.status==0)?"selected":"" %>  >Inactive</option>
+           
+          </select>
+
+        </div>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <button class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+      
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script>
+  
+      
+  
+      $(document).ready(function () {
+  
+        $("#userSubmit").on('submit', function (event) {
+  
+          event.preventDefault();
+          let name = $("#name").val();
+          let status =  $("#status").val();
+          let image=  $("#image").files;
+            
+          console.log({
+            name,
+            status,
+            image
+          })
+  
+          const form = new FormData();
+          form.append('name',name);
+          form.append('status',status);
+          form.append('image',image);
+  
+          //console.log(form);
+          $.ajax({
+            url: "/brandData",
+            type: "POST",
+             contentType:{headers:'multipart/form-data'},
+            data:form
+          ,
+            // dataType:json,
+            success: function (data) {
+                   console.log("return data =",data)
+                   $("#message").append(data)
+  
+            }
+          })
+  
+        })
+  
+       
+      });   
+    </script> -->
+
+  </body>
+</html>

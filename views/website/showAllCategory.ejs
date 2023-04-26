@@ -1,0 +1,139 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>NewsBlog a Blog Category Bootstrap Responsive Website Template | Beauty : W3layouts</title>
+    <%-include("cdn") %>
+    
+  </head>
+  <body>
+<!-- header -->
+<%-include("./layouts/header")%>
+
+<!-- //header -->
+<div class="w3l-homeblock2 w3l-homeblock5 py-5">
+    <div class="container pt-md-4 pb-md-5">
+        <!-- block -->
+        <h3 class="category-title mb-3"> <%= findCategoryById.name %></h3>
+        <p class="mb-sm-5 mb-4 max-width">Lorem ipsum dolor sit amet elit. Id quaerat amet ipsum sunt et quos dolorum.</p>
+        <div class="row">
+            
+          
+                
+                <div class="col-md-12">
+                <div class="bg-clr-white hover-box">
+                    <div class="row">
+                        <div class="col-sm-5 position-relative">
+                            <a href="" class="image-mobile">
+                                <img style="max-height: 200px; min-width: 200px;" class="card-img-bottom d-block radius-image-full" src="/userimage/<%= findCategoryById.image %>" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="col-sm-7 card-body blog-details align-self">
+                            <a href="" class="blog-desc"><%=findCategoryById.name%>
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="/userimage/<%=findCategoryById.banner%>" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="author.html">Isabella ava</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+                
+         
+            
+          
+        
+          
+         
+        </div>
+        <ul class="site-pagination text-center mt-md-5 mt-4">
+            <li><span aria-current="page" class="page-numbers current">1</span></li>
+            <li><a class="page-numbers" href="#page2">2</a></li>
+            <li><a class="page-numbers" href="#page3">3</a></li>
+            <li><span class="page-numbers dots">…</span></li>
+            <li><a class="page-numbers" href="#page7">7</a></li>
+            <li><a class="next page-numbers" href="#next">Next »</a></li>
+        </ul>
+    </div>
+</div>
+<!-- footer-28 block -->
+<%-include("./layouts/footer")%>
+<!-- //footer-28 block -->
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- Template JavaScript -->
+<script src="/website/assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- theme changer js -->
+<script src="/website/assets/js/theme-change.js"></script>
+<!-- //theme changer js -->
+
+<!-- courses owlcarousel -->
+<script src="/website/assets/js/owl.carousel.js"></script>
+
+<!-- script for testimonials -->
+<script>
+  $(document).ready(function () {
+    $('.owl-testimonial').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        480: {
+          items: 1,
+          nav: false
+        },
+        667: {
+          items: 1,
+          nav: true
+        },
+        1000: {
+          items: 1,
+          nav: true
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for testimonials -->
+
+<!-- bootstrap -->
+<script src="/website/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
